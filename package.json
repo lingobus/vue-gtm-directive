@@ -1,0 +1,23 @@
+{
+  "name": "vue-gtm-directive",
+  "version": "1.0.0",
+  "description": "custom vue directive of google tag manager implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lingobus/vue-gtm-directive.git"
+  },
+  "keywords": [
+    "vue",
+    "google-tag-manager"
+  ],
+  "author": "jzykc@hotmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lingobus/vue-gtm-directive/issues"
+  },
+  "homepage": "https://github.com/lingobus/vue-gtm-directive#readme"
+}
