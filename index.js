@@ -5,10 +5,10 @@ Vue.directive('gtag', {
 
     // collect arguments
     const vattrs = vnode.data.attrs || {}
-    const data = binding.value
+    let data = binding.value
     // event
-    if (act === 'event') {
-      data = {"event": vnode.data.attrs['event-name'], ...value}
+    if (binding.arg === 'event') {
+      data = Object.assign({}, { "event": vnode.data.attrs['event-name'] }, data)
     }
 
     const triggerEvent = vattrs['trigger-event'] || 'click'
@@ -18,6 +18,7 @@ Vue.directive('gtag', {
     // add event listener
     el.addEventListener(triggerEvent, e => {
       const ret = beforeSend(e, el, binding, vnode)
+      debugger
       if (ret === false) {
         // cancel calling gtag if beforeSend return false
         return
@@ -45,7 +46,7 @@ function init() {
   const w = window
   if (w.gtag) return
   w.dataLayer = w.dataLayer || []
-  w.gtag = function () {
-    w.dataLayer.push(arguments)
+  w.gtag = function (data = {}) {
+    w.dataLayer.push(data)
   }
 }
